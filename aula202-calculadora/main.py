@@ -5,7 +5,7 @@ from main_window import MainWindow
 from variables import WINDOW_ICON_PATH
 from PySide6.QtGui import QIcon
 from info import Info
-from buttons import Button, ButtonsGrid
+from buttons import ButtonsGrid
 
 
 if __name__ == '__main__':
