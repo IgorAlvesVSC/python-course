@@ -58,7 +58,9 @@ class ButtonsGrid(QGridLayout):
         self.info.setText(value)
 
     def _makeGrid(self):
-        self.display.eqRequested.connect(lambda: print(123))
+        # self.display.eqRequested.connect()
+        self.display.delPressed.connect(self.display.backspace)
+        # self.display.clearPressed.connect()
 
         for rowNumber, rowData in enumerate(self._gridMask):
             for colNumber, button_text in enumerate(rowData):
