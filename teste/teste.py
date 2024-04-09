@@ -21,7 +21,7 @@ print(idade)
 
 ##############################################################
 
-"""
+
 num1 = float(input("Digite o primeiro número: "))
 operacao = input("Escolha a operação (+, -, *, /): ")
 num2 = float(input("Digite o segundo número: "))
@@ -45,7 +45,7 @@ else:
 
 if resultado is not None:
     print(f"Resultado: {num1} {operacao} {num2} = {resultado}")
-"""
+
 
 ##############################################################
 
