@@ -45,13 +45,15 @@ sql = (
 # )
 cursor.execute(sql, {'nome': 'Sem nome', 'peso': 3})
 cursor.executemany(sql, (
-    {'nome': 'Joãzinho', 'peso': 3},
+    {'nome': 'Joãozinho', 'peso': 3},
     {'nome': 'Maria', 'peso': 2},
     {'nome': 'Helena', 'peso': 4},
     {'nome': 'Joana', 'peso': 5},
 ))
 connection.commit()
-print(sql)
 
 cursor.close()
 connection.close()
+
+if __name__ == '__main__':
+    print(sql)
