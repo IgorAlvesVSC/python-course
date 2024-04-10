@@ -22,18 +22,36 @@ connection.commit()
 cursor.execute(
     f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'
     '('
+    'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+    'name TEXT,'
+    'weight REAL'
+    ')'
 )
 connection.commit()
 
 # Registrar valores nas colunas da tabela
-# CUIDADO: sql injection
-cursor.execute(
+sql = (
     f'INSERT INTO {TABLE_NAME} '
-    '(id, name, weight) '
+    '(name, weight) '
     'VALUES '
-    '(NULL, "Helena", 4), (NULL, "Eduardo", 10)'
+    '(:nome, :peso)'
 )
+# cursor.execute(sql, ['Joana', 4])
+# cursor.executemany(
+#     sql,
+#     (
+#         ('Joana', 4), ('Luiz', 5)
+#     )
+# )
+cursor.execute(sql, {'nome': 'Sem nome', 'peso': 3})
+cursor.executemany(sql, (
+    {'nome': 'Joãzinho', 'peso': 3},
+    {'nome': 'Maria', 'peso': 2},
+    {'nome': 'Helena', 'peso': 4},
+    {'nome': 'Joana', 'peso': 5},
+))
 connection.commit()
+print(sql)
 
 cursor.close()
 connection.close()
